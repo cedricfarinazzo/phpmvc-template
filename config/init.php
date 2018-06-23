@@ -21,4 +21,7 @@ Factory::autoload_starter();
 $db = PDOFactory::getMysqlConnexion($db_name, $host_db, $login_db, $password_db);
 Factory::error_handler($db);
 
+require 'routesConfig.php';
+
 session_start();
+//user connect

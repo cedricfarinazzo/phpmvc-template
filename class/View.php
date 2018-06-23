@@ -13,7 +13,6 @@ class View
     public function IncludeView()
     {
         require ROOT_PATH . '/view/' . $this->view . '.php';
-        echo $view_requets;
         require ROOT_PATH . '/_shared/' . $this->layout . '.php';
     }
 }

@@ -22,6 +22,11 @@ class Router
         $this->_routes[] = new View('Home', 'layout');
     }
 
+    public function SetRoutes($data)
+    {
+        $this->_routes = $data;
+    }
+
     public function GetPage($key)
     {
         $found = false;
