@@ -3,6 +3,7 @@
 require 'config.php';
 require 'recaptchaConfig.php';
 require 'dbKey.php';
+require 'project.php';
 
 if ($_SERVER["SERVER_NAME"] == "localhost" OR $_SERVER["SERVER_NAME"] == "0.0.0.0" OR $_SERVER["SERVER_NAME"] == "127.0.0.1") {
     $production = false;

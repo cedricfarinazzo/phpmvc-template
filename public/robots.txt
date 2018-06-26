@@ -3,4 +3,4 @@ Disallow : /nongooglebot/
 
 User-agent : *
 Allow : /
-Disallow : /?p=admin
+Disallow : /admin

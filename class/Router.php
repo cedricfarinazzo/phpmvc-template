@@ -25,6 +25,7 @@ class Router
     public function SetRoutes($data)
     {
         $this->_routes = $data;
+        $this->_default = $this->_routes[0];
     }
 
     public function GetPage($key)
