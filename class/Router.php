@@ -38,7 +38,17 @@ class Router
             }
         }
         if (!$found) {
-            $this->_default->IncludeView();
+            $found404 = false;
+            foreach ($this->_routes as $val) {
+                if ($val->view == '404') {
+                    $found404 = true;
+                    $val->IncludeView();
+                }
+            }
+            if (!$found404)
+            {
+                $this->_default->IncludeView();
+            }
         }
     }
 

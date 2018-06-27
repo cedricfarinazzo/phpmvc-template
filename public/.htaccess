@@ -1,9 +1,10 @@
-RewriteEngine On
-
+<IfModule mod_headers.c>
 <FilesMatch ".(ico|jpg|jpeg|png|gif|js|css|swf)$">
     Header set Cache-Control "max-age=900"
 </FilesMatch>
+</IfModule>
 
+<IfModule mod_deflate.c>
 AddOutputFilterByType DEFLATE text/plain
 AddOutputFilterByType DEFLATE text/html
 AddOutputFilterByType DEFLATE text/xml
@@ -12,10 +13,18 @@ AddOutputFilterByType DEFLATE application/xml
 AddOutputFilterByType DEFLATE application/xhtml+xml
 AddOutputFilterByType DEFLATE application/rss+xml
 AddOutputFilterByType DEFLATE application/javascript
-AddOutputFilterByType DEFLATE application/x-javascrip
+AddOutputFilterByType DEFLATE application/x-javascript
+</IfModule>
 
-RewriteCond %{REQUEST_URI} ^/[a-zA-Z1-9]*/?$
-RewriteRule ^([^/]*)/?$ /?page=$1 [L]
+<IfModule mod_rewrite.c>
+RewriteEngine On
 
-RewriteCond %{REQUEST_URI} ^/[a-zA-Z1-9]*/\?.*$
-RewriteRule ^([^/]*)/?\(.*)$ /?page=$1&$2 [L]l
+RewriteCond %{REQUEST_URI} !^/assets
+RewriteCond %{REQUEST_URI} !^/admindir
+RewriteCond %{REQUEST_URI} !^/index.php
+RewriteRule (.+) /index.php?page=$1 [QSA]
+</IfModule>
+
+ErrorDocument 500 /500
+ErrorDocument 401 /401
+ErrorDocument 404 /404
