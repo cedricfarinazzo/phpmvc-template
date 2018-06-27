@@ -20,7 +20,7 @@ AddOutputFilterByType DEFLATE application/x-javascript
 RewriteEngine On
 
 RewriteCond %{REQUEST_URI} !^/assets
-RewriteCond %{REQUEST_URI} !^/admindir
+RewriteCond %{REQUEST_URI} !^/admin
 RewriteCond %{REQUEST_URI} !^/index.php
 RewriteRule (.+) /index.php?page=$1 [QSA]
 </IfModule>

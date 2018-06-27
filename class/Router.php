@@ -14,12 +14,13 @@ class Router
     public function __construct()
     {
         $this->_routes = array();
-        $this->_default = new View('Home');
+        $this->_default = NULL;
     }
 
     public function init()
     {
         $this->_routes[] = new View('Home', 'layout');
+        $this->_default = new View('Home');
     }
 
     public function SetRoutes($data)
@@ -30,6 +31,10 @@ class Router
 
     public function GetPage($key)
     {
+        if ($key == '')
+        {
+            return $this->_default->IncludeView();
+        }
         $found = false;
         foreach ($this->_routes as $val) {
             if ($val->view == $key) {
