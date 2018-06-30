@@ -20,9 +20,12 @@ if (!$production) {
 require ROOT_PATH . '/class/Factory.php';
 Factory::autoload_starter();
 $db = PDOFactory::getMysqlConnexion($db_name, $host_db, $login_db, $password_db);
-Factory::error_handler($db);
+//Factory::error_handler($db);
 
 require 'routesConfig.php';
+
+global $langmanager;
+
 
 session_start();
 //user connect

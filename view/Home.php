@@ -2,6 +2,8 @@
 ob_start();
 // PHP REQUESTS
 $test = "accueil";
+$langmanager = new LangManager();
+$langmanager->set('fr');
 
 $view_requests = ob_get_contents();
 ob_clean();
@@ -10,7 +12,7 @@ ob_start();
 // HTML DISPLAY
 ?>
 
-    <h1>Home</h1>
+    <h1><?= $langmanager->Data()['Home'] ?></h1>
     <p><?= $test ?></p>
 
 <?php
