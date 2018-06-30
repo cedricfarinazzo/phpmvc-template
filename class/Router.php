@@ -37,7 +37,7 @@ class Router
         }
         $found = false;
         foreach ($this->_routes as $val) {
-            if ($val->view == $key) {
+            if (strtolower($val->view) == strtolower($key) && file_exists(ROOT_PATH.'/view/'.$val->view.'.php')) {
                 $found = true;
                 $val->IncludeView();
             }
