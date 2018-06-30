@@ -8,6 +8,7 @@ class View
     public function __construct($view, $layout = 'layout')
     {
         $this->view = $view;
+        $this->layout = $layout;
     }
 
     public function IncludeView()
