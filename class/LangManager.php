@@ -27,7 +27,7 @@ class LangManager
         }
         else
         {
-            $this->load('en');
+            $this->set(PROJECT_LANG);
         }
     }
 
