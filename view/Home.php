@@ -2,8 +2,7 @@
 ob_start();
 // PHP REQUESTS
 $test = "accueil";
-$langmanager = new LangManager();
-$langmanager->set('fr');
+
 
 $view_requests = ob_get_contents();
 ob_clean();

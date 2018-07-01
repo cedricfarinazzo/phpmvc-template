@@ -13,6 +13,7 @@ class View
 
     public function IncludeView()
     {
+        global $langmanager;
         global $connected;
         require ROOT_PATH . '/view/' . $this->view . '.php';
         global $view_title;

@@ -25,6 +25,7 @@ $db = PDOFactory::getMysqlConnexion($db_name, $host_db, $login_db, $password_db)
 require 'routesConfig.php';
 
 global $langmanager;
+$langmanager = new LangManager();
 
 
 session_start();

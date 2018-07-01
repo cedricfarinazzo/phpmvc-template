@@ -6,7 +6,7 @@ ob_start();
 set_time_limit(0);
 $commands = array(
     'echo $PWD',
-    'whoami',
+    'whoami' ,
     'git add .',
     'git stash',
     'git reset --hard HEAD',
@@ -15,8 +15,8 @@ $commands = array(
     'git submodule sync',
     'git submodule update',
     'git submodule status',
-    'composer install',
-    'composer update'
+    'cd .. && composer install',
+    'cd .. && composer update'
 );
 // Run the commands for output
 $output = '';
