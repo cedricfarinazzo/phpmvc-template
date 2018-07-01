@@ -3,6 +3,7 @@ ob_start();
 // PHP REQUESTS
 
 // The commands
+set_time_limit(0);
 $commands = array(
     'echo $PWD',
     'whoami',
@@ -14,6 +15,8 @@ $commands = array(
     'git submodule sync',
     'git submodule update',
     'git submodule status',
+    'composer install',
+    'composer update'
 );
 // Run the commands for output
 $output = '';
