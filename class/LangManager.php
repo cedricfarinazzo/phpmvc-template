@@ -12,34 +12,27 @@ class LangManager
     private $_appdata = array();
 
     private $_langavailable = array();
-    private $_langdirectory = ROOT_PATH.'/src/lang/';
+    private $_langdirectory = ROOT_PATH . '/src/lang/';
 
     public function __construct()
     {
         $data = array_slice(scandir($this->_langdirectory), 2);
-        foreach ($data as $val)
-        {
+        foreach ($data as $val) {
             $this->_langavailable[] = (explode('.lang.', $val))[0];
         }
-        if (isset($_COOKIE["app_lang"]))
-        {
+        if (isset($_COOKIE["app_lang"])) {
             $this->load($_COOKIE["app_lang"]);
-        }
-        else
-        {
+        } else {
             $this->set(PROJECT_LANG);
         }
     }
 
     public function load($lang)
     {
-        if(in_array($lang, $this->_langavailable))
-        {
-            require $this->_langdirectory.$lang.'.lang.php';
-        }
-        else
-        {
-            require $this->_langdirectory.'en.lang.php';
+        if (in_array($lang, $this->_langavailable)) {
+            require $this->_langdirectory . $lang . '.lang.php';
+        } else {
+            require $this->_langdirectory . 'en.lang.php';
         }
         $this->_appdata = $app_lang;
     }

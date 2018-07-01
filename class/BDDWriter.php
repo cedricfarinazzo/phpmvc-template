@@ -11,8 +11,8 @@ class BDDWriter implements SplObserver
 
     public function update(SplSubject $obj)
     {
-        $q = $this->db->prepare('INSERT INTO erreurs SET erreur = :erreur');
-        $q->bindValue(':erreur', $obj->getFormatedError());
+        $q = $this->db->prepare('INSERT INTO error SET erreur = :erreur');
+        $q->bindValue(':error', $obj->getFormatedError());
         $q->execute();
     }
 }

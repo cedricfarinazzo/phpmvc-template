@@ -27,6 +27,12 @@ require 'routesConfig.php';
 global $langmanager;
 $langmanager = new LangManager();
 
+$image_manager = new ImageManager($db);
+if ($image_manager->IsEmpty()) {
+    $image_manager->AddDefault();
+}
+unset($image_manager);
+
 
 session_start();
 //user connect

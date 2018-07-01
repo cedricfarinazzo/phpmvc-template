@@ -31,13 +31,12 @@ class Router
 
     public function GetPage($key)
     {
-        if ($key == '')
-        {
+        if ($key == '') {
             return $this->_default->IncludeView();
         }
         $found = false;
         foreach ($this->_routes as $val) {
-            if (strtolower($val->view) == strtolower($key) && file_exists(ROOT_PATH.'/view/'.$val->view.'.php')) {
+            if (strtolower($val->view) == strtolower($key) && file_exists(ROOT_PATH . '/view/' . $val->view . '.php')) {
                 $found = true;
                 $val->IncludeView();
             }
@@ -50,8 +49,7 @@ class Router
                     $val->IncludeView();
                 }
             }
-            if (!$found404)
-            {
+            if (!$found404) {
                 $this->_default->IncludeView();
             }
         }

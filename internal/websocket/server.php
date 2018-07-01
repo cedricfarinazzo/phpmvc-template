@@ -1,8 +1,8 @@
 <?php
-require dirname(realpath(__FILE__), 3).'/config/config.php';
-require ROOT_PATH.'/config/recaptchaConfig.php';
-require ROOT_PATH.'/config/dbKey.php';
-require ROOT_PATH.'/config/project.php';
+require dirname(realpath(__FILE__), 3) . '/config/config.php';
+require ROOT_PATH . '/config/recaptchaConfig.php';
+require ROOT_PATH . '/config/dbKey.php';
+require ROOT_PATH . '/config/project.php';
 
 require ROOT_PATH . '/class/Factory.php';
 Factory::autoload_starter();
@@ -11,8 +11,8 @@ global $langmanager;
 $langmanager = new LangManager();
 Factory::error_handler($db);
 
-use Ratchet\Server\IoServer;
 use Ratchet\Http\HttpServer;
+use Ratchet\Server\IoServer;
 use Ratchet\WebSocket\WsServer;
 
 require ROOT_PATH . '/vendor/autoload.php';

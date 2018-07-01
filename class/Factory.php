@@ -17,7 +17,7 @@ class Factory
 
     public static function Session_init($db)
     {
-        $session = new MySessionHandler($db);
+        $session = new CustomSessionHandler($db);
         ini_set('session.save_handler', 'users');
         session_set_save_handler(array($session, 'open'),
             array($session, 'close'),

@@ -16,10 +16,10 @@ class MessageToast
         if (0 <= $this->id_message && $this->id_message < count($this->data)) {
             $style = $this->data["toast"][$this->id_message]["style"];
             $message = $this->data["toast"][$this->id_message]["text"];
-            $text = '<span class="message-toast ' . $style . '" >' . $message . '</span><button class="btn-flat toast-action" onclick="Materialize.Toast.removeAll();" >'.$this->data["toast_hide"].'</button>';
+            $text = '<span class="message-toast ' . $style . '" >' . $message . '</span><button class="btn-flat toast-action" onclick="Materialize.Toast.removeAll();" >' . $this->data["toast_hide"] . '</button>';
 
             $all =
-            "<script>
+                "<script>
                 (function($){
                     var toastMessageContent = '.$text.';
                     Materialize.toast(
