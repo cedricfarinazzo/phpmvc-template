@@ -2,23 +2,35 @@
 
 class MessageToast
 {
-
-    protected $message = array("Vous êtes désormais membre du site !", "Vous êtes connecté !", "Vous êtes déconnecté !", "Nous avons renouvelé votre connexion.", 'Bienvenue sur le site du groupee ACCEr !', 'Votre compte a bien été supprimé.');
-    protected $style = array("success", "success", "noerror", 'success', 'success', 'success');
-
     protected $id_message;
+    private $data;
 
-    public function __construct($id_message)
+    public function __construct($id_message, $datalang)
     {
         $this->id_message = $id_message;
+        $this->data = $datalang;
     }
 
     public function GetMessage()
     {
-        if (0 <= $this->id_message && $this->id_message < count($this->message)) {
-            $color = $this->style[$this->id_message] == "success" ? "success green darken-2" : "error red darken-1";
-            $message = $this->message[(int)$this->id_message];
-            return '<span class="' . $color . '" style="padding: 7px; box-shadow: 6px 6px 0px black; border-radius: 9px;" >' . $message . '</span>';
+        if (0 <= $this->id_message && $this->id_message < count($this->data)) {
+            $style = $this->data["toast"][$this->id_message]["style"];
+            $message = $this->data["toast"][$this->id_message]["text"];
+            $text = '<span class="message-toast ' . $style . '" >' . $message . '</span><button class="btn-flat toast-action" onclick="Materialize.Toast.removeAll();" >'.$this->data["toast_hide"].'</button>';
+
+            $all =
+            "<script>
+                (function($){
+                    var toastMessageContent = '.$text.';
+                    Materialize.toast(
+                        {
+                            html: toastMessageContent,
+                            classes: 'rounded'
+                        }
+                    );
+                })(jQuery);
+            </script>";
+            return $all;
         }
         return false;
     }
